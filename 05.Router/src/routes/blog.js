@@ -31,6 +31,7 @@ const handleBlogRoute = (req, res) => {
 
   // 更新路由
   if (method === 'POST' && req.path === '/api/blog/update') {
+    console.log(req.body)
     return {
       message: '更新博客的接口'
     }
