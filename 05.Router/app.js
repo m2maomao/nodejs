@@ -4,7 +4,7 @@ const querystring = require('querystring');
 // 处理POST数据
 const getPostData = (req) => {
   const promise = new Promise((resolve, reject) => {
-    if(req.method === 'POST') {
+    if(req.method !== 'POST') {
       resolve({});
       return;
     }
