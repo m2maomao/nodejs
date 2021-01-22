@@ -24,6 +24,8 @@ const handleBlogRoute = (req, res) => {
 
   // 新增路由
   if (method === 'POST' && req.path === '/api/blog/new') {
+    const postData = req.body;
+    const newBlogData = createNewBlog(postData);
     return {
       message: '新建博客的接口'
     }

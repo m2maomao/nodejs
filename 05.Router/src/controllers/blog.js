@@ -28,6 +28,8 @@ const getDetail = (id) => {
   }
 }
 
+// 创建博客
+
 module.exports = {
   getList,
   getDetail
