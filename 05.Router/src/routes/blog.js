@@ -1,5 +1,7 @@
 const {SuccessModel, ErrorModel} = require('../model/responseModel');
 const {getList, getDetail, createNewBlog, updateBlog, deleteBlog} = require('../controllers/blog');
+
+const { execSQL } = require('../db/mysql');
 // 处理博客相关的路由
 const handleBlogRoute = (req, res) => {
   // 定义处理路由的逻辑
@@ -8,8 +10,10 @@ const handleBlogRoute = (req, res) => {
   const blogData = req.body;
   // 博客列表路由
   if (method === 'GET' && req.path === '/api/blog/list') {
-    // /api/blog/list?author=michael&keyword=123
-    // new SuccessModel()
+    const sql = `select * from blogs`;
+    execSQL(sql).then(res => {
+      console.log(res);
+    })
     const author = req.query.author || '';
     const keyword = req.query.keywords || '';
     const listData = getList(author, keyword);
